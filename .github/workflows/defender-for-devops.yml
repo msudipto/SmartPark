@@ -53,3 +53,9 @@ jobs:
       uses: github/codeql-action/upload-sarif@v3
       with:
         sarif_file: ${{ steps.msdo.outputs.sarifFile }}
+        category: 'msdo-first'
+    - name: Upload results to Security tab (duplicate)
+      uses: github/codeql-action/upload-sarif@v3
+      with:
+        sarif_file: ${{ steps.msdo.outputs.sarifFile }}
+        category: 'msdo-second'
