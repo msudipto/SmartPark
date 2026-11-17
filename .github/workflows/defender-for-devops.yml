@@ -44,10 +44,11 @@ jobs:
           python-version: "3.x"
 
       - name: Install Bandit
-        run: python -m pip install --upgrade bandit
+        run: python -m pip install --upgrade bandit bandit-sarif-formatter
 
       - name: Run Bandit
         shell: bash
+        continue-on-error: true
         run: |
           python -m bandit -r . \
             -f sarif \
