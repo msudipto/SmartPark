@@ -57,7 +57,7 @@ jobs:
 
       - name: Upload Bandit results
         if: always() && hashFiles('bandit.sarif') != ''
-        uses: github/codeql-action/upload-sarif@v3
+        uses: github/codeql-action/upload-sarif@v4
         with:
           sarif_file: bandit.sarif
           category: bandit
@@ -68,6 +68,6 @@ jobs:
 
       - name: Upload MSDO results
         if: always() && steps.msdo.outputs.sarifFile != ''
-        uses: github/codeql-action/upload-sarif@v3
+        uses: github/codeql-action/upload-sarif@v4
         with:
           sarif_file: ${{ steps.msdo.outputs.sarifFile }}
